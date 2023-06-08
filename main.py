@@ -2,6 +2,7 @@
 
 import shutil
 import psutil
+import os
 from netw import *
 
 
@@ -12,6 +13,8 @@ def check_disk_usage(disk):
 
 
 def check_cpu_usage():
+    print("CPU usage through out this function: {0}\nProcess ID: {1}".format(
+        psutil.cpu_times(), os.getpid()))
     usage = psutil.cpu_percent(1)
     return usage < 50
 
